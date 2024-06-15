@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Image Classifier</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" class="form-control" name="imagefile">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Predict Image</button>
+        </form>
+        {% if prediction %}
+            <p class="text-center mt-3">The image is classified as: <strong>{{ prediction }}</strong></p>
+            <img src="{{ image_path }}" class="img-fluid mx-auto d-block" alt="Predicted Image">
+        {% endif %}
+    </div>
+</body>
+</html>
